@@ -1,29 +1,30 @@
-# require 'json'
-# require 'open-uri'
 
-# url = '/list.php?i=listhttps://www.thecocktaildb.com/api/json/v1/1'
-# ingredients_serialized = open(url).read
-# ingredients = JSON.parse(ingredients_serialized)
+# puts 'Cleaning database...'
+# Ingredient.destroy_all
 
-# ingredients.each do |ingredient|
-#   Ingredient.create!(business.slice(:strIngredient1))
+# puts 'creating ingredients...'
+# 10.times do
+#   new_ing = Ingredient.new(
+#     name: Faker::Science.element
+#     )
+#   new_ing.save
 # end
 
+# puts "Created #{Ingredient.count} ingredients!"
 
-# filepath = '/list.php?i=listhttps://www.thecocktaildb.com/api/json/v1/1'
+require 'json'
+require 'open-uri'
 
-# serialized_beers = File.read(filepath)
-
-# beers = JSON.parse(serialized_beers)
 puts 'Cleaning database...'
 Ingredient.destroy_all
-
 puts 'creating ingredients...'
-10.times do
-  new_ing = Ingredient.new(
-    name: Faker::Science.element
-    )
-  new_ing.save
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredient_serialized = open(url).read
+ingredients = JSON.parse(ingredient_serialized)
+
+ingredients['drinks'].each do |ingredient|
+  Ingredient.create(name: ingredient['strIngredient1'])
 end
 
 puts "Created #{Ingredient.count} ingredients!"
