@@ -1,7 +1,9 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/doses/new.html.erb</p>
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-<%= f.input :description %>
-<%= f.association :ingredient %>
-<%= f.button :submit %>
-<% end %>
+<div class="container my-5" style="width: 30%">
+  <h1>Add a dose</h1>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit 'create', class: "btn btn-outline-primary rounded-pill"%>
+  <% end %>
+</div>
+<!-- btn-outline-danger btn-sm rounded-pill m-2 -->

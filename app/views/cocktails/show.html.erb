@@ -1,9 +1,25 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
-<p> <%= @cocktail.name %> </p>
-<% @cocktail.doses.each do |dose| %>
-  <%= dose.ingredient.name %> - <%= dose.description %>
-  <%= link_to "delete dose", dose_path(dose), method: :delete  %>
-<% end %>
-<%= link_to 'add dose', new_cocktail_dose_path(@cocktail) %>
-<%= link_to 'Back' , cocktails_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+<div class="d-flex w-100 justify-content-center">
+  <div class="card-category my-5" style="width: 50% ">
+    <div class="d-flex flex-column">
+      <h2><%= @cocktail.name %></h2>
+      <ul class="p-0" style="list-style: none">
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to dose_path(dose), method: :delete , class: 'card-remove-link', data: {confirm: "Delete #{dose.description}?"} do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %></li>
+        <% end %>
+      </ul>
+    </div>
+    <%#= link_to "delete dose", dose_path(dose), method: :delete  %>
+    <%= link_to new_cocktail_dose_path(@cocktail), class: 'card-add-link' do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+  </div>
+</div>
