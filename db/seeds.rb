@@ -1,16 +1,16 @@
 
-# puts 'Cleaning database...'
-# Ingredient.destroy_all
+puts 'Cleaning database...'
+Cocktail.destroy_all
 
-# puts 'creating ingredients...'
-# 10.times do
-#   new_ing = Ingredient.new(
-#     name: Faker::Science.element
-#     )
-#   new_ing.save
-# end
+puts 'creating cocktails...'
+10.times do
+  new_cocktail = Cocktail.new(
+    name: Faker::Science.element
+    )
+  new_cocktail.save
+end
 
-# puts "Created #{Ingredient.count} ingredients!"
+puts "Created #{Cocktail.count} cocktails!"
 
 require 'json'
 require 'open-uri'
