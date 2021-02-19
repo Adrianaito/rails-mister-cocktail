@@ -1,7 +1,7 @@
 <div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/moloko-vellocet-zulfa-oxford.jpg);">
   <div class="container">
-    <h1>Korova Milkbar</h1>
-    <p>Ready for a bit of the old ultraviolence</p>
+    <h1>Droogs Bar</h1>
+    <p>Ready for a bit of the old ultraviolence?</p>
     <!-- <a class="btn btn-flat" href="#">Apply now</a> -->
   </div>
 </div>
@@ -9,10 +9,17 @@
   <div class="card" style="width: 90%;">
     <div class="cards">
       <% @cocktails.each do |cocktail| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          <%= link_to " " , cocktail_path(cocktail), class: 'card-link' %>
-          <%= cocktail.name %>
-        </div>
+        <% if cocktail.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path monster.photo.key %>)">
+            <%= link_to " " , cocktail_path(cocktail), class: 'card-link' %>
+            <%= cocktail.name %>
+          </div>
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <%= link_to " " , cocktail_path(cocktail), class: 'card-link' %>
+            <%= cocktail.name %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
