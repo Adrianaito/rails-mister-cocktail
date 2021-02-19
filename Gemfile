@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # added
 gem 'autoprefixer-rails'
+gem 'cloudinary', '~> 1.16.0'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form'
 gem 'faker'
