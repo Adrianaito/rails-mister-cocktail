@@ -1,24 +1,35 @@
 <div class="d-flex justify-content-around">
   <div class="d-flex justify-content-center" style="width: 35%">
-    <div class="card-category my-5" style="width: 100%; height: 15em; ">
-      <div class="d-flex flex-column">
-        <h2><%= @cocktail.name %></h2>
-        <ul class="p-0" style="list-style: none">
-          <% @cocktail.doses.each do |dose| %>
-            <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to dose_path(dose), method: :delete , class: 'card-remove-link', data: {confirm: "Delete #{dose.description}?"} do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %></li>
-          <% end %>
-        </ul>
+    <% if @cocktail.photo.attached? %>
+      <div class="card-category my-5" style="width: 100%; height: 15em; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @cocktail.photo.key %>) ">
+        <div class="d-flex flex-column">
+          <h2><%= @cocktail.name %></h2>
+          <ul class="p-0" style="list-style: none">
+            <% @cocktail.doses.each do |dose| %>
+              <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to dose_path(dose), method: :delete , class: 'card-remove-link', data: {confirm: "Delete #{dose.description}?"} do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <%#= link_to "delete dose", dose_path(dose), method: :delete  %>
-      <%= link_to new_cocktail_dose_path(@cocktail), class: 'card-add-link' do %>
-        <i class="fas fa-plus"></i>
-      <% end %>
-    </div>
+    <% else %>
+      <div class="card-category my-5" style="width: 100%; height: 15em;)">
+        <div class="d-flex flex-column">
+          <h2><%= @cocktail.name %></h2>
+          <ul class="p-0" style="list-style: none">
+            <% @cocktail.doses.each do |dose| %>
+              <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to dose_path(dose), method: :delete , class: 'card-remove-link', data: {confirm: "Delete #{dose.description}?"} do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="container m-0 my-5 pt-5" style="width: 40%">
-    <h1>Add a dose</h1>
+    <h1>Choose your poison</h1>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
       <%= f.association :ingredient, collection: @ingredients %>
@@ -26,3 +37,4 @@
     <% end %>
   </div>
 </div>
+<!--background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg-->
