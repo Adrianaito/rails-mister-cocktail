@@ -3,11 +3,10 @@ puts 'Cleaning database...'
 Cocktail.destroy_all
 
 puts 'creating cocktails...'
-10.times do
-  new_cocktail = Cocktail.new(
+12.times do
+  new_cocktail = Cocktail.create!(
     name: Faker::Science.element
-    )
-  new_cocktail.save
+  )
 end
 
 puts "Created #{Cocktail.count} cocktails!"
@@ -24,7 +23,7 @@ ingredient_serialized = open(url).read
 ingredients = JSON.parse(ingredient_serialized)
 
 ingredients['drinks'].each do |ingredient|
-  Ingredient.create(name: ingredient['strIngredient1'])
+  Ingredient.create!(name: ingredient['strIngredient1'])
 end
 
 puts "Created #{Ingredient.count} ingredients!"
