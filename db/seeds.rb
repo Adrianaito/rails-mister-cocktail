@@ -8,8 +8,6 @@ url = ['https://cutt.ly/Elq5W4B', 'https://cutt.ly/mlq5OZv', 'https://cutt.ly/xl
   new_cocktail = Cocktail.create!(
     name: Faker::Science.element
   )
-
-
   file = URI.open(url.sample)
   new_cocktail.photo.attach(io: file, filename: 'nes.jpeg', content_type: 'image/jpeg')
   new_cocktail.save

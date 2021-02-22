@@ -2,7 +2,7 @@ class DosesController < ApplicationController
   def new
     @dose = Dose.new
     @cocktail = Cocktail.find(params['cocktail_id'])
-    @ingredients = Ingredient.where.not(id: @dose.ingredient).order(name: :asc)
+    @ingredients = Ingredient.order(name: :asc)
   end
 
   def create

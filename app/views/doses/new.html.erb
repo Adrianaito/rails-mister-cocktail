@@ -2,7 +2,7 @@
   <h1>Add a dose</h1>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.input :description %>
-    <%= f.association :ingredient %>
+    <%= f.association :ingredient, collection: @ingredients %>
     <%= f.submit 'create', class: "btn btn-warning rounded-pill"%>
   <% end %>
 </div>
