@@ -25,11 +25,13 @@
   opacity: 1;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-// .home-banner {
-//   background-image: url('TODO: A picture URL from unsplash.com!');
-//   background-size: cover;
-//   height: 100vh;
-//   color: #eee;
-//   text-align: center;
-//   padding-top: 40vh;
-// }
+@media (min-width: 100px) and (max-width: 575px) {
+  .banner p {
+  font-size: 1em;
+  }
+  .banner {
+    object-fit: cover;
+  }
+}
+
+

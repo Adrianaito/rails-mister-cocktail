@@ -25,3 +25,8 @@
 .footer .fa-heart {
   color: $orange;
 }
+@media (min-width: 100px) and (max-width: 575px) {
+  .footer-copyright {
+  font-size: 0.8em;
+}
+}
