@@ -1,24 +1,11 @@
-# README
+## Create and organize your favorite cocktails recipes!
+👉 [Droogs bar]("https://droogs-bar.herokuapp.com/cocktails")
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Theme inspired by A Clockwork Orange movie!
 
-Things you may want to cover:
+## Dictionary
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* **droog, droogie** : friend
+* **moloko** : milk
