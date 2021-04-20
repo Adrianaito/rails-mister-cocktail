@@ -1,6 +1,6 @@
 ## Create and organize your favorite cocktails recipes!
 
-##Demo
+## Demo
 
 👉 [Droogs bar](https://droogs-bar.herokuapp.com/)
 
